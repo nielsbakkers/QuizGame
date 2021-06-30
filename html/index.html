@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Quiz</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <section class="vh-100">
+    <div class="container h-100">
+
+      <div id="initialScreen" class="h-100" style="display:block;">
+        <div class="d-flex flex-column align-items-center justify-content-center h-100">
+            <div class="quizWords" id="quizWords">
+            </div>
+              <h1>QuizGame</h1>
+              <p id="errorMessageBox">An error has occured: <span id=errorMessage></span></p>
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Enter username" id="usernameInput"/>
+              </div>
+              <button
+                type="submit"
+                class="btn color"
+                id="newQuizButton"
+              >
+                Start New Quiz
+              </button>
+              <div><strong>OR</strong></div>
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Enter Quiz Code" id="quizcodeInput"/>
+              </div>
+              <button
+                type="submit"
+                class="btn color"
+                id="joinQuizButton"
+              >
+                Join Quiz
+              </button>
+          </div>
+      </div>
+
+      <div id="quizScreen" class="h-100">
+        <div class="d-flex flex-column align-items-center justify-content-center h-100">
+          <h2>JOINED USERS:</h2>
+          <div class="container" id="users">
+          </div>
+          <div id="controls">
+            <button
+              type="submit"
+              class="btn color"
+              id="startQuizButton"
+            >
+              Start quiz
+            </button>
+          </div>
+          <ul id="quizNames">
+            <h4>Select quiz subject:</h4>
+            <span id="selectError"></span>
+          </ul>  
+          <div class="footer">
+            <h1 class="quizCodeDisplay">quizCode: <span id="quizcodeDisplay"></span></h1>
+            <p class="usernameDisplay">username: <span id="usernameDisplay"></span></p>
+          </div>
+          </div> 
+      </div>
+
+      <div id="quizQuestionScreen" class="h-100">
+        <div class="d-flex flex-column align-items-center justify-content-center h-100">
+          <h1 id="question"></h1>
+          <span id="questionResult"></span>
+          <ul id="answers">
+            <li><input type="radio" id="a" name="answer" class="answer" /><label id="a_answer" for="a"></label></li>
+            <li><input type="radio" id="b" name="answer" class="answer"/><label id="b_answer" for="b"></label></li>
+            <li><input type="radio" id="c" name="answer" class="answer"/><label id="c_answer" for="c"></label></li>
+            <li><input type="radio" id="d" name="answer" class="answer"/><label id="d_answer" for="d"></label></li>
+          </ul>
+        <button
+          type="submit"
+          class="btn color"
+          id="checkAnswer"
+        >
+          Submit answer
+        </button>
+        <div id="answeredScreen">users answered: <span id="userAnswered"></span></div>
+        <div class="footer">
+          <h1 class="quizCodeDisplay">quizCode: <span id="quizCodeDisplay"></span></h1>
+          <p class="usernameDisplay">username: <span id="userNameDisplay"></span></p>
+        </div>
+        <div class="notification" id="notification">
+        </div>
+        </div>
+      </div>
+
+      <div id="quizResults" class="h-100">
+        <div class="d-flex flex-column align-items-center justify-content-center h-100">
+            <h1>Quiz Results</h1>
+            <div class="container" id="resultsDisplay">
+            </div>
+          <button
+          type="submit"
+          class="btn color"
+          onclick="window.location.reload();"
+        >
+          Back to mainscreen
+        </button> 
+            <div class="footer">
+              <h1 class="quizCodeDisplay">quizCode: <span id="quizcodeResults"></span></h1>
+              <p class="usernameDisplay">username: <span id="usernameResults"></span></p>
+            </div>          
+        </div>
+      </div>
+      
+    </div>
+  </section>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.1.2/socket.io.js"></script>
+  <script src="index.js"></script>
+</body>
+</html>
